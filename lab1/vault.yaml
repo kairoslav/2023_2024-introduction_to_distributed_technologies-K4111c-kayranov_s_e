@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: vault
+  name: vault
+spec:
+  containers:
+    - name: vault
+      image: vault:1.13.3
+      ports:
+        - containerPort: 8200
+      imagePullPolicy: IfNotPresent
+  restartPolicy: Always
+  
