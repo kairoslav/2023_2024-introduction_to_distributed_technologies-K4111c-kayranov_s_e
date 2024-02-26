@@ -8,10 +8,14 @@ Lab: Lab1
 Date of create: 26.02.2024
 Date of finished: ~
 
+Меняем контекст у kubectl на minikube
 ```bash
 $ kubectl config set-context minikube
 Context "minikube" modified.
+```
 
+Запускаем minikube
+```bash
 $ minikube start
 😄  minikube v1.32.0 on Darwin 13.5.2 (arm64)
 🆕  Kubernetes 1.28.3 is now available. If you would like to upgrade, specify: --kubernetes-version=v1.28.3
@@ -34,18 +38,30 @@ $ minikube start
 
 🌟  Enabled addons: default-storageclass, storage-provisioner, metrics-server, dashboard
 🏄  Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default
+```
 
+Создаем под vault
+```bash
 $ kubectl apply -f vault.yaml   
 pod/vault created
+```
 
+Проверяем, что под поднялся
+```bash
 $ kubectl get pods
 NAME    READY   STATUS    RESTARTS   AGE
 vault   1/1     Running   0          2m2s
+```
 
-$ minikube kubectl -- expose pod vault --type=NodePort --port=8200
+Для доступа к vault извне создаем сервис
+```bash
+$ minikube kubectl --expose pod vault --type=NodePort --port=8200
 service/vault exposed
+```
 
-$ minikube kubectl -- port-forward service/vault 8200:8200
+Делаем проброс порта
+```bash
+$ minikube kubectl --port-forward service/vault 8200:8200
 Forwarding from 127.0.0.1:8200 -> 8200
 Forwarding from [::1]:8200 -> 8200
 Handling connection for 8200
@@ -56,6 +72,11 @@ Handling connection for 8200
 Handling connection for 8200
 ```
 
+Проверяем, что vault доступен
 ![](img.png)
 
+Находим токен для доступа в логах пода
+```bash
+$ kubectl logs pods/vault
+```
 ![](img2.png)
