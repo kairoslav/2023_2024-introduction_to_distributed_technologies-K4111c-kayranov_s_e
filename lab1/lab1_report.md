@@ -1,11 +1,11 @@
-University: [ITMO University](https://itmo.ru/ru/)
-Faculty: [FICT](https://fict.itmo.ru)
-Course: [Introduction to distributed technologies](https://github.com/itmo-ict-faculty/introduction-to-distributed-technologies)
-Year: 2023/2024
-Group: K4111c
-Author: Kayranov Svyatoslav Eduardovich
-Lab: Lab1
-Date of create: 26.02.2024
+University: [ITMO University](https://itmo.ru/ru/) \
+Faculty: [FICT](https://fict.itmo.ru) \
+Course: [Introduction to distributed technologies](https://github.com/itmo-ict-faculty/introduction-to-distributed-technologies) \
+Year: 2023/2024 \
+Group: K4111c \
+Author: Kayranov Svyatoslav Eduardovich \
+Lab: Lab2 \
+Date of create: 26.02.2024 \
 Date of finished: ~
 
 Меняем контекст у kubectl на minikube
@@ -80,3 +80,7 @@ Handling connection for 8200
 $ kubectl logs pods/vault
 ```
 ![](img2.png)
+
+Диаграмма взаимодействия:
+
+![](diagram.png)

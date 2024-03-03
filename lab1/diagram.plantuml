@@ -1,0 +1,12 @@
+@startuml
+
+actor user
+
+cloud {
+    component Service
+    component VaultPod
+}
+
+user -> Service: localhost:8080
+Service -> VaultPod : 8080:8080
+@enduml

@@ -1,0 +1,26 @@
+@startuml
+'https://plantuml.com/deployment-diagram
+
+actor user
+component tunnel
+cloud k8scluster {
+
+    component ingress
+    component service
+    component configmap
+    component secret
+    rectangle replicaset {
+        node pod1
+        node pod2
+    }
+
+    replicaset -.> configmap
+    service -up-> pod2
+    service -up-> pod1
+    service <- ingress
+    ingress -up-.> secret
+
+}
+tunnel -right-> ingress
+tunnel <- user
+@enduml
