@@ -1,0 +1,18 @@
+@startuml
+'https://plantuml.com/deployment-diagram
+
+actor user
+cloud "K8S Cluster" {
+    agent service
+    node minikube as node1 {
+        agent pod1
+    }
+    node "minikube-02m" as node2 {
+        agent pod2
+    }
+}
+user -down-> service
+service -down-> pod1
+service -down-> pod2
+
+@enduml
