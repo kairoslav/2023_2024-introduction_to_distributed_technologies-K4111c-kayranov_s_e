@@ -10,9 +10,9 @@ cloud cloud {
         node pod2
     }
 
-    service -> pod1
-    service -> pod2
+    service -up-> pod1
+    service -up-> pod2
 }
-user -> service
+user -up-> service
 
 @enduml

@@ -29,4 +29,4 @@ $ kubectl port-forward services/react-app 3000:3000
 
 Диаграмма взаимодействия:
 
-![](diagram.png)
+![img_1.png](img_1.png)
